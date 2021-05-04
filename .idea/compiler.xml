@@ -8,17 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mitarbeiterservice" />
-        <module name="kundenservice" />
+        <module name="kundeservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="kundenservice" target="1.8" />
+      <module name="kundeservice" target="1.8" />
       <module name="mitarbeiterservice" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="kundenservice" options="-parameters" />
+      <module name="kundeservice" options="-parameters" />
       <module name="mitarbeiterservice" options="-parameters" />
     </option>
   </component>
