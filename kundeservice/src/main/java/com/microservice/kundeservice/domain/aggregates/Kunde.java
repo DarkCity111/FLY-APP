@@ -1,5 +1,6 @@
 package com.microservice.kundeservice.domain.aggregates;
 
+import com.microservice.kundeservice.domain.valueobjects.Kundennummer;
 import com.microservice.kundeservice.domain.valueobjects.PersonName;
 import com.microservice.kundeservice.domain.valueobjects.PersonOrt;
 import com.microservice.kundeservice.domain.valueobjects.PersonPLZ;
@@ -19,6 +20,10 @@ public class Kunde {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Embedded
+    @Column(unique = true)
+    private Kundennummer kundennummer;
 
     @Embedded
     @NotNull
