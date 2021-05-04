@@ -28,18 +28,30 @@ public class Kunde {
 
     @Embedded
     @NotNull
+    @AttributeOverrides({
+            @AttributeOverride(name = "name", column = @Column(name = "vorname"))
+    })
     private PersonName vorname;
 
     @Embedded
     @NotNull
+    @AttributeOverrides({
+            @AttributeOverride(name = "name", column = @Column(name = "nachname"))
+    })
     private PersonName nachname;
 
     @Embedded
     @NotNull
+    @AttributeOverrides({
+            @AttributeOverride(name = "name", column = @Column(name = "plz"))
+    })
     private PersonPLZ plz;
 
     @Embedded
     @NotNull
+    @AttributeOverrides({
+            @AttributeOverride(name = "name", column = @Column(name = "ort"))
+    })
     private PersonOrt ort;
 
     public Kunde(CreateKundeCommand createKundeCommand){
