@@ -2,13 +2,13 @@ package com.microservice.kundeservice.api.rest;
 
 import com.microservice.kundeservice.api.rest.dtos.CreateKundenDto;
 import com.microservice.kundeservice.api.rest.mappers.CommandDtoMapper;
+import com.microservice.kundeservice.api.rest.mappers.EntityDtoMapper;
 import com.microservice.kundeservice.services.CommandService;
 import com.microservice.kundeservice.services.QueryService;
+import com.microservice.kundeservice.shareddomain.model.KundenResponseDTO;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -26,7 +26,7 @@ public class KundenController {
         this.commandService = commandService;
     }
 
-    //gibt kundennummer zurück
+    //gibt erstellt Kunde und gibt kundennummer zurück
     @PostMapping
     public ResponseEntity<?> createKunden(@RequestBody CreateKundenDto createKundenDto){
         String kundennummer = commandService.createKunden(CommandDtoMapper.toCreateKundenCommand(createKundenDto));
@@ -38,6 +38,10 @@ public class KundenController {
         return ResponseEntity.created(location).build();
     }
 
-
+    //gibt Kunde zurück
+    @GetMapping("/{kundennummer}")
+    public ResponseEntity<KundenResponseDTO> getKundenByKundennummer(@PathVariable String kundennummer){
+        return new ResponseEntity<>(EntityDtoMapper.toKundenResponseDTO(queryService.getKundeByKundennummer(kundennummer)), HttpStatus.OK);
+    }
 
 }

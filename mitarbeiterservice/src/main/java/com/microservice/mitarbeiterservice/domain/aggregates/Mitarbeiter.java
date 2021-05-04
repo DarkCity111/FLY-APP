@@ -50,7 +50,10 @@ public class Mitarbeiter {
     }
 
 
-
+    /// DOMAIN EVENT IMPLEMENTIEREN !"!!
+    ///////
+    ///////
+    //////////////////////
 
 
 

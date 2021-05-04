@@ -43,14 +43,14 @@ public class Kunde {
     @Embedded
     @NotNull
     @AttributeOverrides({
-            @AttributeOverride(name = "name", column = @Column(name = "plz"))
+            @AttributeOverride(name = "plz", column = @Column(name = "plz"))
     })
     private PersonPLZ plz;
 
     @Embedded
     @NotNull
     @AttributeOverrides({
-            @AttributeOverride(name = "name", column = @Column(name = "ort"))
+            @AttributeOverride(name = "ort", column = @Column(name = "ort"))
     })
     private PersonOrt ort;
 
