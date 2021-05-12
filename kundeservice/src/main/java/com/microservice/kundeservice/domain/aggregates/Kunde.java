@@ -5,9 +5,12 @@ import com.microservice.kundeservice.domain.valueobjects.Kundennummer;
 import com.microservice.kundeservice.domain.valueobjects.PersonName;
 import com.microservice.kundeservice.domain.valueobjects.PersonOrt;
 import com.microservice.kundeservice.domain.valueobjects.PersonPLZ;
+import com.microservice.kundeservice.shareddomain.events.KundeCreatedEvent;
+import com.microservice.kundeservice.shareddomain.events.KundeCreatedEventData;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.AbstractAggregateRoot;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -16,7 +19,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Kunde {
+public class Kunde extends AbstractAggregateRoot<Kunde> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -61,11 +64,18 @@ public class Kunde {
         this.plz = new PersonPLZ(createKundeCommand.getPlz());
         this.ort = new PersonOrt(createKundeCommand.getOrt());
 
+        addDomainEvent(new KundeCreatedEvent(
+                new KundeCreatedEventData(
+                        this.kundennummer.getKundennummer(),
+                        this.vorname.getName(),
+                        this.nachname.getName(),
+                        this.plz.getPostleitzahl(),
+                        this.ort.getOrt())));
 
-        /// DOMAIN EVENT IMPLEMENTIEREN !"!!
-        ///////
-        ///////
-        //////////////////////
+    }
+
+    private void addDomainEvent(Object event){
+        registerEvent(event);
     }
 
 

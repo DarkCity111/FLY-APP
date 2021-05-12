@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FLY-APP.iml" filepath="$PROJECT_DIR$/FLY-APP.iml" />
       <module fileurl="file://$PROJECT_DIR$/buchungservice/buchungservice.iml" filepath="$PROJECT_DIR$/buchungservice/buchungservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flugservice/flugservice.iml" filepath="$PROJECT_DIR$/flugservice/flugservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/kundeservice/kundeservice.iml" filepath="$PROJECT_DIR$/kundeservice/kundeservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/mitarbeiterservice/mitarbeiterservice.iml" filepath="$PROJECT_DIR$/mitarbeiterservice/mitarbeiterservice.iml" />
     </modules>

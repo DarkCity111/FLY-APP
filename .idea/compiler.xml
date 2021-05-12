@@ -7,13 +7,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mitarbeiterservice" />
         <module name="kundeservice" />
+        <module name="flugservice" />
+        <module name="mitarbeiterservice" />
         <module name="buchungservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="buchungservice" target="1.8" />
+      <module name="flug" target="1.8" />
+      <module name="flugservice" target="1.8" />
       <module name="kundeservice" target="1.8" />
       <module name="mitarbeiterservice" target="1.8" />
     </bytecodeTargetLevel>
@@ -21,6 +24,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="buchungservice" options="-parameters" />
+      <module name="flug" options="-parameters" />
+      <module name="flugservice" options="-parameters" />
       <module name="kundeservice" options="-parameters" />
       <module name="mitarbeiterservice" options="-parameters" />
     </option>
